@@ -75,8 +75,9 @@
                             :date (format-date (get metadata :date))
                             :content-hiccup content-hiccup})]
     (case layout-type
-      "post" (template/render-post page-context)
-      "page" (template/render-page page-context)
+      "post"     (template/render-post page-context)
+      "home"     (template/render-home page-context)
+      "services" (template/render-services page-context)
       (template/render-page page-context))))
 
 ;; Post Metadata Collection
@@ -121,9 +122,9 @@
             (let [url (path->url content-dir file)
                   file-path (.getPath file)]
               [url (fn [context]
-                     (let [context-with-posts (if (= url "/index.html")
-                                                (assoc context :posts posts :show-footer? false)
-                                                context)]
+                     (let [context-with-posts (cond-> context
+                                                (contains? #{"/index.html" "/posts.html"} url)
+                                                (assoc :posts posts))]
                        (render-markdown-page context-with-posts file-path)))])))))
 
 (defn get-pages

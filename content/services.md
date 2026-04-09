@@ -1,6 +1,6 @@
 {:title "Services"
  :description "What BrokerDev builds for independent insurance brokers"
- :layout "page"}
+ :layout "services"}
 
 # Services
 
