@@ -1,21 +1,72 @@
 /* ============================================================
-   Variables
+   Palette — literal colors, never used directly in rules
    ============================================================ */
 
 :root {
-  --navy:       #0f172a;
-  --navy-light: #1e293b;
-  --blue:       #2563eb;
-  --blue-dark:  #1d4ed8;
-  --blue-light: #eff6ff;
-  --gray-50:    #f8fafc;
-  --gray-100:   #f1f5f9;
-  --gray-200:   #e2e8f0;
-  --gray-400:   #94a3b8;
-  --gray-600:   #475569;
-  --white:      #ffffff;
-  --max-width:  1100px;
-  --radius:     8px;
+  --blue:      #2563eb;
+  --blue-dark: #1d4ed8;
+  --white:     #ffffff;   /* text on always-dark surfaces */
+
+  --radius:    8px;
+  --max-width: 1100px;
+}
+
+/* ============================================================
+   Semantic tokens — light mode (default)
+   ============================================================ */
+
+:root {
+  --c-bg:           #ffffff;
+  --c-bg-subtle:    #f8fafc;
+  --c-bg-card:      #ffffff;
+  --c-bg-code:      #f1f5f9;
+  --c-bg-blue-tint: #eff6ff;
+
+  --c-border:       #e2e8f0;
+
+  --c-text:         #0f172a;
+  --c-text-secondary: #475569;
+  --c-text-muted:   #94a3b8;
+  --c-heading:      #0f172a;
+
+  --c-nav-bg:       #ffffff;
+  --c-nav-border:   #e2e8f0;
+  --c-nav-text:     #475569;
+
+  /* Always-dark surfaces: hero, footer, pre blocks */
+  --c-dark-bg:           #0f172a;
+  --c-dark-bg-raised:    #1e293b;
+  --c-dark-text-muted:   #94a3b8;
+}
+
+/* ============================================================
+   Semantic tokens — dark mode overrides
+   ============================================================ */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-bg:           #0f172a;
+    --c-bg-subtle:    #1e293b;
+    --c-bg-card:      #1e293b;
+    --c-bg-code:      #1e293b;
+    --c-bg-blue-tint: #1e3a5f;
+
+    --c-border:       #334155;
+
+    --c-text:         #f1f5f9;
+    --c-text-secondary: #cbd5e1;
+    --c-text-muted:   #64748b;
+    --c-heading:      #f1f5f9;
+
+    --c-nav-bg:       #0f172a;
+    --c-nav-border:   #1e293b;
+    --c-nav-text:     #94a3b8;
+
+    /* Always-dark surfaces go even darker in dark mode */
+    --c-dark-bg:        #020617;
+    --c-dark-bg-raised: #0f172a;
+    --c-dark-text-muted: #64748b;
+  }
 }
 
 /* ============================================================
@@ -32,8 +83,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
                "Helvetica Neue", Arial, sans-serif;
   line-height: 1.6;
-  color: var(--navy);
-  background: var(--white);
+  color: var(--c-text);
+  background: var(--c-bg);
 }
 
 img {
@@ -53,24 +104,24 @@ a:hover {
 
 p {
   margin-bottom: 1rem;
-  color: var(--gray-600);
+  color: var(--c-text-secondary);
   line-height: 1.75;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: var(--navy);
+  color: var(--c-heading);
   line-height: 1.3;
 }
 
 ul, ol {
   margin-left: 1.5rem;
   margin-bottom: 1rem;
-  color: var(--gray-600);
+  color: var(--c-text-secondary);
 }
 
 hr {
   border: none;
-  border-top: 1px solid var(--gray-200);
+  border-top: 1px solid var(--c-border);
   margin: 2rem 0;
 }
 
@@ -114,8 +165,8 @@ main h3 {
 .site-header {
   position: sticky;
   top: 0;
-  background: var(--white);
-  border-bottom: 1px solid var(--gray-200);
+  background: var(--c-nav-bg);
+  border-bottom: 1px solid var(--c-nav-border);
   z-index: 100;
 }
 
@@ -130,7 +181,7 @@ main h3 {
 .logo {
   font-size: 1.2rem;
   font-weight: 800;
-  color: var(--navy);
+  color: var(--c-heading);
   text-decoration: none;
   letter-spacing: -0.03em;
 }
@@ -148,7 +199,7 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: var(--gray-600);
+  color: var(--c-nav-text);
   font-size: 0.9rem;
   font-weight: 500;
 }
@@ -210,11 +261,11 @@ nav a:hover {
 }
 
 /* ============================================================
-   Hero
+   Hero  — always dark, in both modes
    ============================================================ */
 
 .hero {
-  background: var(--navy);
+  background: var(--c-dark-bg);
   color: var(--white);
   padding: 5rem 0 4.5rem;
 }
@@ -237,7 +288,7 @@ nav a:hover {
 
 .hero-content p {
   font-size: 1.1rem;
-  color: var(--gray-400);
+  color: var(--c-dark-text-muted);
   margin-bottom: 2rem;
   line-height: 1.75;
 }
@@ -261,13 +312,13 @@ nav a:hover {
 .placeholder-image {
   width: 100%;
   aspect-ratio: 4 / 3;
-  background: var(--navy-light);
+  background: var(--c-dark-bg-raised);
   border: 2px dashed rgba(255, 255, 255, 0.12);
   border-radius: var(--radius);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--gray-400);
+  color: var(--c-dark-text-muted);
   font-size: 0.8rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -278,11 +329,11 @@ nav a:hover {
 }
 
 /* ============================================================
-   Home page: insights grid below hero
+   Home page
    ============================================================ */
 
 .home main {
-  background: var(--gray-50);
+  background: var(--c-bg-subtle);
 }
 
 /* ============================================================
@@ -298,15 +349,15 @@ nav a:hover {
 
 .services-content > div > p:first-of-type {
   font-size: 1.05rem;
-  color: var(--gray-600);
+  color: var(--c-text-secondary);
   margin-bottom: 2.5rem;
   padding-bottom: 2rem;
-  border-bottom: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--c-border);
 }
 
 .services-content h2 {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
+  background: var(--c-bg-card);
+  border: 1px solid var(--c-border);
   border-left: 4px solid var(--blue);
   border-radius: var(--radius) var(--radius) 0 0;
   padding: 1.25rem 1.5rem 0.75rem;
@@ -316,13 +367,13 @@ nav a:hover {
 }
 
 .services-content h2 + p {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
+  background: var(--c-bg-card);
+  border: 1px solid var(--c-border);
   border-top: none;
   border-radius: 0 0 var(--radius) var(--radius);
   padding: 0 1.5rem 1.25rem;
   margin-bottom: 0;
-  color: var(--gray-600);
+  color: var(--c-text-secondary);
 }
 
 .services-content hr {
@@ -330,12 +381,12 @@ nav a:hover {
 }
 
 .services-content hr + p {
-  background: var(--blue-light);
-  border: 1px solid var(--gray-200);
+  background: var(--c-bg-blue-tint);
+  border: 1px solid var(--c-border);
   border-left: 4px solid var(--blue);
   border-radius: var(--radius);
   padding: 1.25rem 1.5rem;
-  color: var(--navy);
+  color: var(--c-heading);
 }
 
 /* ============================================================
@@ -349,9 +400,10 @@ nav a:hover {
 .posts h2 {
   font-size: 1.375rem;
   font-weight: 700;
+  color: var(--c-heading);
   margin-bottom: 1.75rem;
   padding-bottom: 1rem;
-  border-bottom: 2px solid var(--gray-200);
+  border-bottom: 2px solid var(--c-border);
 }
 
 .post-list {
@@ -363,8 +415,8 @@ nav a:hover {
 }
 
 .post-list li article {
-  background: var(--white);
-  border: 1px solid var(--gray-200);
+  background: var(--c-bg-card);
+  border: 1px solid var(--c-border);
   border-radius: var(--radius);
   padding: 1.5rem;
   height: 100%;
@@ -383,7 +435,7 @@ nav a:hover {
 }
 
 .post-list h3 a {
-  color: var(--navy);
+  color: var(--c-heading);
   text-decoration: none;
 }
 
@@ -394,7 +446,7 @@ nav a:hover {
 .post-list time {
   display: block;
   font-size: 0.75rem;
-  color: var(--gray-400);
+  color: var(--c-text-muted);
   margin-bottom: 0.6rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -404,7 +456,7 @@ nav a:hover {
 .post-list p {
   font-size: 0.875rem;
   margin: 0;
-  color: var(--gray-600);
+  color: var(--c-text-secondary);
   line-height: 1.6;
 }
 
@@ -426,7 +478,7 @@ nav a:hover {
 .post-content article > time {
   display: block;
   font-size: 0.8rem;
-  color: var(--gray-400);
+  color: var(--c-text-muted);
   margin-bottom: 2.5rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -442,34 +494,34 @@ nav a:hover {
 }
 
 .author-bio {
-  background: var(--blue-light);
-  border: 1px solid var(--gray-200);
+  background: var(--c-bg-blue-tint);
+  border: 1px solid var(--c-border);
   border-left: 4px solid var(--blue);
   border-radius: var(--radius);
   padding: 1.5rem;
 }
 
 .author-bio h3 {
-  color: var(--navy);
+  color: var(--c-heading);
   margin: 0 0 0.75rem;
   font-size: 1rem;
 }
 
 /* ============================================================
-   Code
+   Code — inline light, blocks always dark
    ============================================================ */
 
 code {
-  background: var(--gray-100);
+  background: var(--c-bg-code);
   padding: 0.2rem 0.4rem;
   border-radius: 4px;
   font-family: "SF Mono", "Fira Code", "Courier New", monospace;
   font-size: 0.875em;
-  color: var(--navy);
+  color: var(--c-text);
 }
 
 pre {
-  background: var(--navy);
+  background: var(--c-dark-bg);
   padding: 1.5rem;
   border-radius: var(--radius);
   overflow-x: auto;
@@ -483,12 +535,12 @@ pre code {
 }
 
 /* ============================================================
-   Footer
+   Footer — always dark, in both modes
    ============================================================ */
 
 .site-footer {
-  background: var(--navy);
-  color: var(--gray-400);
+  background: var(--c-dark-bg);
+  color: var(--c-dark-text-muted);
   padding: 3.5rem 0 2rem;
 }
 
@@ -506,7 +558,7 @@ pre code {
 
 .footer-brand p {
   font-size: 0.875rem;
-  color: var(--gray-400);
+  color: var(--c-dark-text-muted);
   margin: 0;
   line-height: 1.6;
 }
@@ -522,7 +574,7 @@ pre code {
 
 .footer-section a {
   display: block;
-  color: var(--gray-400);
+  color: var(--c-dark-text-muted);
   text-decoration: none;
   font-size: 0.9rem;
   margin-bottom: 0.6rem;
@@ -540,5 +592,5 @@ pre code {
   padding-top: 1.5rem;
   margin-top: 0.5rem;
   font-size: 0.8rem;
-  color: var(--gray-400);
+  color: var(--c-dark-text-muted);
 }
