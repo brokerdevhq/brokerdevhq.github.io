@@ -30,7 +30,7 @@ jobs:
           cli: latest
 
       - name: Build site
-        run: clj -M:dev -m ca.brokerdev.generate-site.core
+        run: clojure -M:dev -m ca.brokerdev.generate-site.core
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
