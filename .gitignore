@@ -1,0 +1,22 @@
+# Nix
+.direnv/
+result
+
+# Build outputs
+public/
+.cache/
+.cpcache/
+
+# REPL
+.nrepl-port
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

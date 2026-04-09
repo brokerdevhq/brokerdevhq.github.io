@@ -1,0 +1,33 @@
+{ pkgs ? import <nixpkgs> {} }:
+
+pkgs.mkShell {
+  buildInputs = with pkgs; [
+    openjdk25
+    nodejs
+    clojure
+    polylith
+  ];
+
+  shellHook = ''
+    echo "
+ ██████╗ ██████╗  ██████╗ ██╗  ██╗███████╗██████╗ ██████╗ ███████╗██╗   ██╗
+ ██╔══██╗██╔══██╗██╔═══██╗██║ ██╔╝██╔════╝██╔══██╗██╔══██╗██╔════╝██║   ██║
+ ██████╔╝██████╔╝██║   ██║█████╔╝ █████╗  ██████╔╝██║  ██║█████╗  ██║   ██║
+ ██╔══██╗██╔══██╗██║   ██║██╔═██╗ ██╔══╝  ██╔══██╗██║  ██║██╔══╝  ╚██╗ ██╔╝
+ ██████╔╝██║  ██║╚██████╔╝██║  ██╗███████╗██║  ██║██████╔╝███████╗ ╚████╔╝
+ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═════╝ ╚══════╝  ╚═══╝"
+
+    echo "Marketing site development environment loaded"
+    echo "  OpenJdk:   $(java --version 2>&1 | head -1)"
+    echo "  Node:      $(node --version)"
+    echo "  Clojure:   $(clojure --version)"
+    echo "  Poly:      $(poly version)"
+
+    echo ""
+    echo "Common Commands:"
+    echo "  clj -M:dev:nrepl                              Start development nrepl"
+    echo "  clj -M:dev -m ca.brokerdev.generate-site.core Generate site"
+    echo "  poly info                                      Show workspace info"
+    echo ""
+  '';
+}

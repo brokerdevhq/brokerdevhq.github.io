@@ -1,0 +1,10 @@
+{:deps {org.clojure/clojure {:mvn/version "1.11.1"}
+         ca.brokerdev/markdown-parser {:local/root "../../components/markdown-parser"}
+         ca.brokerdev/html-renderer {:local/root "../../components/html-renderer"}
+         ca.brokerdev/template {:local/root "../../components/template"}
+         ca.brokerdev/file-utils {:local/root "../../components/file-utils"}
+         ca.brokerdev/site-generator {:local/root "../../components/site-generator"}
+         ca.brokerdev/generate-site {:local/root "../../bases/generate-site"}}
+
+ :aliases {:test {:extra-paths []
+                  :extra-deps  {}}}}
