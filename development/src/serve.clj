@@ -12,7 +12,6 @@
             WatchKey
             StandardWatchEventKinds
             ClosedWatchServiceException
-            FileVisitOption
             LinkOption]
            [java.util.concurrent Executors
             ExecutorService
@@ -28,7 +27,7 @@
 (defonce build-lock (Object.))
 
 (def watch-dirs
-  ["content" "static"])
+  ["content" "static" "components"])
 
 (def debounce-ms 250)
 
@@ -72,6 +71,7 @@
   (locking build-lock
     (generator/generate-site
      {:content-dir "content"
+      :components-dir "components"
       :output-dir  "public"
       :static-dir  "static"
       :site-config site-config})))
@@ -165,6 +165,8 @@
    (start-watcher!)
    (println (str "Serving at http://localhost:" port))
    (println "Hot reload enabled (manual browser refresh).")))
+
+
 
 (comment
   (start!)      ;; starts on 8080

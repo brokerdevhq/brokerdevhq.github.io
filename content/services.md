@@ -22,6 +22,6 @@ Decades-old databases and custom tools don't have to be a dead end. We bridge le
 
 When off-the-shelf tools don't fit, we build purpose-built applications: internal dashboards, client portals, reporting tools, and producer-facing utilities — all designed around how your brokerage actually operates.
 
----
+
 
 [Get in touch](mailto:hello@brokerdev.ca) to discuss what you're trying to solve.

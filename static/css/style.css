@@ -170,20 +170,21 @@ main h3 {
   z-index: 100;
 }
 
-.site-header .container {
+.site-header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  gap: 1.5rem;
+  min-height: 72px;
 }
 
 .logo {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: var(--c-heading);
   text-decoration: none;
   letter-spacing: -0.03em;
+  white-space: nowrap;
 }
 
 .logo:hover {
@@ -191,20 +192,22 @@ main h3 {
   text-decoration: none;
 }
 
-nav {
+.site-nav {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
+  margin-left: auto;
 }
 
-nav a {
+.site-nav a {
   text-decoration: none;
   color: var(--c-nav-text);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   font-weight: 500;
+  white-space: nowrap;
 }
 
-nav a:hover {
+.site-nav a:hover {
   color: var(--blue);
   text-decoration: none;
 }
@@ -212,7 +215,7 @@ nav a:hover {
 .nav-cta {
   background: var(--blue);
   color: var(--white) !important;
-  padding: 0.45rem 1.1rem;
+  padding: 0.65rem 1.1rem;
   border-radius: var(--radius);
   font-weight: 600 !important;
 }
@@ -221,6 +224,86 @@ nav a:hover {
   background: var(--blue-dark);
   color: var(--white) !important;
 }
+
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--c-nav-border);
+  border-radius: var(--radius);
+  background: transparent;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--c-heading);
+  border-radius: 999px;
+}
+
+/* Tablet / small desktop tightening */
+@media (max-width: 960px) {
+  .site-nav {
+    gap: 1rem;
+  }
+
+  .site-nav a {
+    font-size: 0.9rem;
+  }
+
+  .nav-cta {
+    padding: 0.55rem 0.95rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .site-header-inner {
+    min-height: 64px;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    padding: 1rem;
+    background: var(--c-nav-bg);
+    border-bottom: 1px solid var(--c-nav-border);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.25rem;
+  }
+
+  body.nav-open .site-nav {
+    display: flex;
+  }
+
+  .site-nav a {
+    display: block;
+    padding: 0.85rem 0.25rem;
+    font-size: 1rem;
+  }
+
+  .nav-cta {
+    margin-top: 0.5rem;
+    text-align: center;
+  }
+}
+
 
 /* ============================================================
    Buttons
@@ -304,6 +387,30 @@ nav a:hover {
   justify-content: center;
   align-items: stretch;
 }
+
+@media (max-width: 768px) {
+  .hero .container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .hero-content {
+    order: 1;
+  }
+
+  .hero-visual {
+    order: 2;
+  }
+
+  .hero-content h1 {
+    font-size: 2.1rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+}
+
 
 /* ============================================================
    Placeholder Image

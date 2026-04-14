@@ -1,6 +1,5 @@
 (ns ca.brokerdev.template.interface
-  (:require [hiccup.page :refer [html5]]
-            [clojure.string :as str]))
+  (:require [hiccup.page :refer [html5]]))
 
 ;; Context helpers
 
@@ -37,14 +36,25 @@
 
 (defn- page-header [context]
   [:header.site-header
-   [:div.container
+   [:div.container.site-header-inner
     [:a.logo {:href (resolve-url context "/index.html")} "BrokerDev"]
-    [:nav
+
+    [:button.nav-toggle
+     {:type "button"
+      :aria-label "Toggle navigation"
+      :aria-expanded "false"
+      :onclick "document.body.classList.toggle('nav-open'); this.setAttribute('aria-expanded', document.body.classList.contains('nav-open')); "}
+     [:span]
+     [:span]
+     [:span]]
+
+    [:nav.site-nav
      [:a {:href (resolve-url context "/index.html")} "Home"]
      [:a {:href (resolve-url context "/services.html")} "Services"]
      [:a {:href (resolve-url context "/about.html")} "About"]
      [:a {:href (resolve-url context "/posts.html")} "Insights"]
-     [:a.nav-cta {:href "mailto:hello@brokerdev.ca"} "Contact"]]]])
+     [:a.nav-cta {:href "mailto:info@brokerdev.ca"} "Contact"]]]])
+
 
 ;; Footer
 
@@ -61,7 +71,7 @@
      [:a {:href (resolve-url context "/posts.html")} "Insights"]]
     [:div.footer-section
      [:h4 "Contact"]
-     [:a {:href "mailto:hello@brokerdev.ca"} "hello@brokerdev.ca"]]
+     [:a {:href "mailto:info@brokerdev.ca"} "info@brokerdev.ca"]]
     [:div.footer-bottom
      [:p "© 2025 BrokerDev"]]]])
 
@@ -73,7 +83,7 @@
    [:div.author-bio
     [:h3 "About BrokerDev"]
     [:p "BrokerDev builds modern software for independent insurance brokers — from Applied Epic integrations to workflow automation and legacy system modernization."]
-    [:p [:a {:href "mailto:hello@brokerdev.ca"} "Get in touch"] " to discuss what we can build for your brokerage."]]])
+    [:p [:a {:href "mailto:info@brokerdev.ca"} "Get in touch"] " to discuss what we can build for your brokerage."]]])
 
 ;; Posts list (home + insights page)
 
@@ -127,9 +137,13 @@
           content-hiccup
           [:div.hero-cta
            [:a.btn.btn-primary {:href (resolve-url context "/services.html")} "Our Services"]
-           [:a.btn.btn-secondary {:href "mailto:hello@brokerdev.ca"} "Get in Touch"]]]
+           [:a.btn.btn-secondary {:href "mailto:info@brokerdev.ca"} "Get in Touch"]]
+          ]
          [:div.hero-visual
-          [:div.placeholder-image]]]]
+          [:img.hero-image
+           {:src (resolve-url context "/img/5cb91d8f-242c-462b-8314-6d4b336a86bd.png")
+            :alt "Hero image"
+            :style "max-width:100%; height:auto;"}]]]]
        [:main
         [:div.container
          (when posts (posts-list context posts))]]

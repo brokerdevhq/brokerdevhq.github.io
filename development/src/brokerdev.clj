@@ -2,7 +2,7 @@
   (:require [ca.brokerdev.site-generator.interface :as generator]
             [ca.brokerdev.markdown-parser.interface :as parser]
             [ca.brokerdev.html-renderer.interface :as renderer]
-            [ca.brokerdev.template.interface :as template]
+            ;;[ca.brokerdev.template.interface :as template]
             [ca.brokerdev.file-utils.interface :as files]))
 
 (comment
