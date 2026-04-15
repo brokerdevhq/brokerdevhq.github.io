@@ -50,9 +50,9 @@
 
     [:nav.site-nav
      [:a {:href (resolve-url context "/index.html")} "Home"]
-     [:a {:href (resolve-url context "/services.html")} "Services"]
-     [:a {:href (resolve-url context "/about.html")} "About"]
-     [:a {:href (resolve-url context "/posts.html")} "Insights"]
+    ;;  [:a {:href (resolve-url context "/services.html")} "Services"]
+    ;;  [:a {:href (resolve-url context "/about.html")} "About"]
+    ;;  [:a {:href (resolve-url context "/posts.html")} "Insights"]
      [:a.nav-cta {:href "mailto:info@brokerdev.ca"} "Contact"]]]])
 
 
@@ -64,11 +64,11 @@
     [:div.footer-brand
      [:a.logo {:href (resolve-url context "/index.html")} "BrokerDev"]
      [:p "Modern software for independent insurance brokers."]]
-    [:div.footer-section
-     [:h4 "Pages"]
-     [:a {:href (resolve-url context "/services.html")} "Services"]
-     [:a {:href (resolve-url context "/about.html")} "About"]
-     [:a {:href (resolve-url context "/posts.html")} "Insights"]]
+    ;; [:div.footer-section
+    ;;  [:h4 "Pages"]
+    ;;  [:a {:href (resolve-url context "/services.html")} "Services"]
+    ;;  [:a {:href (resolve-url context "/about.html")} "About"]
+    ;;  [:a {:href (resolve-url context "/posts.html")} "Insights"]]
     [:div.footer-section
      [:h4 "Contact"]
      [:a {:href "mailto:info@brokerdev.ca"} "info@brokerdev.ca"]]
@@ -136,7 +136,7 @@
          [:div.hero-content
           content-hiccup
           [:div.hero-cta
-           [:a.btn.btn-primary {:href (resolve-url context "/services.html")} "Our Services"]
+          ;;  [:a.btn.btn-primary {:href (resolve-url context "/services.html")} "Our Services"]
            [:a.btn.btn-secondary {:href "mailto:info@brokerdev.ca"} "Get in Touch"]]
           ]
          [:div.hero-visual
