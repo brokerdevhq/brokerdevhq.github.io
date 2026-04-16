@@ -3,8 +3,7 @@
             [ca.brokerdev.html-renderer.interface :as renderer]
             [ca.brokerdev.template.interface :as template]
             [ca.brokerdev.file-utils.interface :as files]
-            [clojure.string :as str]
-            [clojure.java.io :as io])
+            [clojure.string :as str])
   (:import [java.time.format DateTimeFormatter]
            [java.time ZoneId]))
 
@@ -77,7 +76,6 @@
     (case layout-type
       "post"     (template/render-post page-context)
       "home"     (template/render-home page-context)
-      "services" (template/render-services page-context)
       (template/render-page page-context))))
 
 ;; Post Metadata Collection

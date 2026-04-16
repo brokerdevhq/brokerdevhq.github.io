@@ -31,6 +31,6 @@
   "Convert markdown string to hiccup data structure."
   [markdown]
   (->> markdown
-       md/md->hiccup
+       md/md->hiccup 
        md/component
        fix-code-blocks))

@@ -136,7 +136,7 @@ hr {
 }
 
 main {
-  padding: 4rem 0;
+  padding: 1rem 0;
 }
 
 main h1 {
@@ -700,4 +700,142 @@ pre code {
   margin-top: 0.5rem;
   font-size: 0.8rem;
   color: var(--c-dark-text-muted);
+}
+
+/* ============================================================
+   Services
+   ============================================================ */
+
+.services-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+
+.services-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.services-text {
+  flex: 2;
+}
+
+.services-image {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  margin: 0 auto; /* center on mobile */
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .services-container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; /* center whole block */
+  }
+
+  .services-image {
+    margin-left: 2rem;
+  }
+}
+
+
+
+/* ============================================================
+   Services - Things we do
+   ============================================================ */
+
+.services-value {
+  background: #f5f5f5;
+  padding: 4rem 1.5rem;
+}
+
+.services-value-how-we-help {
+  background: black;
+  padding: 4rem 1.5rem;
+}
+
+.services-value__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-value__eyebrow {
+  width: 40px;
+  height: 3px;
+  background: var(--blue);
+  margin-bottom: 1rem;
+}
+
+.services-value__title {
+  font-size: 2.2rem;
+  color:var(--blue);
+  margin-bottom: 2.5rem;
+}
+
+/* GRID */
+.services-value__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .services-value__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* CARD */
+.services-value__card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* IMAGE */
+.services-value__image-wrap {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.services-value__image {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+/* BIG NUMBER OVERLAY */
+.services-value__number {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  font-size: 5rem;
+  color: rgba(255,255,255,0.7);
+  font-weight: 300;
+  letter-spacing: 2px;
+}
+
+/* TEXT */
+.services-value__card-title {
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.services-value__underline {
+  width: 30px;
+  height: 3px;
+  background: var(--blue);
+  margin-bottom: 1rem;
+}
+
+.services-value__text {
+  color: #444;
+  line-height: 1.6;
 }

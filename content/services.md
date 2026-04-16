@@ -2,9 +2,10 @@
  :description "What BrokerDev builds for independent insurance brokers"
  :layout "services"}
 
-# Services
+# How we help
+Insurance brokerages today operate in an increasingly complex digital landscape—balancing legacy systems, evolving compliance requirements, fragmented data sources, and rising client expectations for seamless, real-time service. Many firms find themselves constrained by outdated technology, manual workflows, and disconnected platforms that slow growth and introduce risk. That’s where we come in. As a specialized software development consultancy that works exclusively in the insurance brokerage space, we partner with brokerages to modernize and manage their technology ecosystems—building custom solutions, streamlining integrations, and ensuring systems work together efficiently and securely. Our goal is simple: to remove technical friction so your team can focus on delivering exceptional service and scaling your business with confidence. 
 
-We work exclusively in the insurance brokerage space. Every engagement is scoped around your real workflows — not generic software templates.
+<img src="/img/services.png" alt="Insurance technology consulting" style="width:50%; border-radius:8px;"> 
 
 ## Applied Epic Integrations
 

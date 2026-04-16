@@ -20,4 +20,4 @@ No rip-and-replace. We scope work tightly, deliver quickly, and build things tha
 
 ## Get in touch
 
-[hello@brokerdev.ca](mailto:hello@brokerdev.ca)
+[info@brokerdev.ca](mailto:info@brokerdev.ca)
