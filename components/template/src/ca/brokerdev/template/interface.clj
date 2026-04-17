@@ -50,9 +50,6 @@
 
     [:nav.site-nav
     ;;  [:a {:href (resolve-url context "/index.html")} "Home"]
-    ;;   [:a {:href (resolve-url context "/services.html")} "Services"]
-    ;;  [:a {:href (resolve-url context "/about.html")} "About"]
-    ;;  [:a {:href (resolve-url context "/posts.html")} "Insights"]
      [:a.nav-cta {:href "mailto:info@brokerdev.ca"} "Contact"]]]])
 
 
@@ -124,6 +121,66 @@
        [:script {:src (resolve-url context "/js/highlight.min.js")}]
        [:script "hljs.highlightAll();"]])))
 
+
+(def service-cards 
+  [:section.services-value
+   [:div.services-value__inner
+    [:div.services-value__eyebrow]
+    [:h2.services-value__title "What we do"]
+    [:div.services-value__grid
+  
+     ;; Card 1
+     [:article.services-value__card
+      [:div.services-value__image-wrap
+       [:img.services-value__image
+        {:src "/img/integration.png"
+         :alt "Applied Epic Integrations"}]
+      ]
+  
+      [:h3.services-value__card-title "Applied Epic Integrations"]
+      [:div.services-value__underline]
+      [:p.services-value__text
+       "The Applied Epic API is powerful and largely untapped. We build direct integrations that push data into Epic from your website, intake forms, and third-party tools — eliminating the manual re-entry that costs your team hours every week."]]
+  
+     ;; Card 2
+     [:article.services-value__card
+      [:div.services-value__image-wrap
+       [:img.services-value__image
+        {:src "/img/automation.png"
+         :alt "Workflow Automation"}]
+       ]
+  
+      [:h3.services-value__card-title "Workflow Automation"]
+      [:div.services-value__underline]
+      [:p.services-value__text
+       "Using tools like n8n, we connect the systems you already have. Form submissions routed to Epic. Client onboarding steps triggered automatically. Renewals queued without touching a keyboard. If it's repetitive, it can be automated."]]
+  
+     ;; Card 3
+     [:article.services-value__card
+      [:div.services-value__image-wrap
+       [:img.services-value__image
+        {:src "/img/migration.png"
+         :alt "Legacy System Modernization"}]
+       ]
+  
+      [:h3.services-value__card-title "Legacy System Modernization"]
+      [:div.services-value__underline]
+      [:p.services-value__text
+       "Decades-old databases and custom tools don't have to be a dead end. We bridge legacy data — FoxPro, Access, custom SQL — into modern APIs and interfaces, without rip-and-replace projects that disrupt your business."]]
+  
+     ;; Card 4
+     [:article.services-value__card
+      [:div.services-value__image-wrap
+       [:img.services-value__image
+        {:src "/img/development.png"
+         :alt "Custom Software Development"}]
+       ]
+      
+      [:h3.services-value__card-title "Custom Software Development"]
+      [:div.services-value__underline]
+      [:p.services-value__text
+       "When off-the-shelf tools don't fit, we build purpose-built applications: internal dashboards, client portals, reporting tools, and producer-facing utilities — all designed around how your brokerage actually operates."]]]]]   )
+
 (defn render-home
   "Render the home page with a hero section and posts grid below."
   [context]
@@ -135,82 +192,16 @@
        [:section.hero
         [:div.container
          [:div.hero-content
-          content-hiccup
+          [:h1 [:span.hero-em "Modern Software Solutions"] " for Independent Insurance Brokers"]
+          [:p "We build integrations, automations, and tools that helps your team focus on the work that matters. 
+               Made and hosted in Canada 🇨🇦"]
           [:div.hero-cta
-           ;;[:a.btn.btn-primary {:href (resolve-url context "/services.html")} "Our Services"]
-           [:a.btn.btn-secondary {:href "mailto:info@brokerdev.ca"} "Get in Touch"]]]
-          
-         [:div.hero-visual
-          [:img.hero-image
-           {:src (resolve-url context "/img/5cb91d8f-242c-462b-8314-6d4b336a86bd.png")
-            :alt "Hero image"
-            :style "max-width:100%; height:auto;"}]]]]
-       [:main
-             
-       [:section.services-value
-        [:div.services-value__inner
-         [:div.services-value__eyebrow]
-         [:h2.services-value__title "How we help"] 
-         [:p "Insurance brokerages today operate in an increasingly complex digital landscape—balancing legacy systems, evolving compliance requirements, fragmented data sources, and rising client expectations for seamless, real-time service. Many firms find themselves constrained by outdated technology, manual workflows, and disconnected platforms that slow growth and introduce risk. That’s where we come in. As a specialized software development consultancy that works exclusively in the insurance brokerage space, we partner with brokerages to modernize and manage their technology ecosystems—building custom solutions, streamlining integrations, and ensuring systems work together efficiently and securely. Our goal is simple: to remove technical friction so your team can focus on delivering exceptional service and scaling your business with confidence. "]]] 
-        [:section.services-value
-         [:div.services-value__inner
-          [:div.services-value__eyebrow]
-          [:h2.services-value__title "What we do"] 
-          [:div.services-value__grid
-        
-           ;; Card 1
-           [:article.services-value__card
-            [:div.services-value__image-wrap
-             [:img.services-value__image
-              {:src "/img/services.png"
-               :alt "Applied Epic Integrations"}]
-             [:div.services-value__number "01"]]
-        
-            [:h3.services-value__card-title "Applied Epic Integrations"]
-            [:div.services-value__underline]
-            [:p.services-value__text
-             "The Applied Epic API is powerful and largely untapped. We build direct integrations that push data into Epic from your website, intake forms, and third-party tools — eliminating the manual re-entry that costs your team hours every week."]]
-        
-           ;; Card 2
-           [:article.services-value__card
-            [:div.services-value__image-wrap
-             [:img.services-value__image
-              {:src "/img/services2.png"
-               :alt "Workflow Automation"}]
-             [:div.services-value__number "02"]]
-        
-            [:h3.services-value__card-title "Workflow Automation"]
-            [:div.services-value__underline]
-            [:p.services-value__text
-             "Using tools like n8n, we connect the systems you already have. Form submissions routed to Epic. Client onboarding steps triggered automatically. Renewals queued without touching a keyboard. If it's repetitive, it can be automated."]]
-        
-           ;; Card 3
-           [:article.services-value__card
-            [:div.services-value__image-wrap
-             [:img.services-value__image
-              {:src "/img/services3.png"
-               :alt "Legacy System Modernization"}]
-             [:div.services-value__number "03"]]
-        
-            [:h3.services-value__card-title "Legacy System Modernization"]
-            [:div.services-value__underline]
-            [:p.services-value__text
-             "Decades-old databases and custom tools don't have to be a dead end. We bridge legacy data — FoxPro, Access, custom SQL — into modern APIs and interfaces, without rip-and-replace projects that disrupt your business."]]
-        
-           ;; Card 4
-           [:article.services-value__card
-            [:div.services-value__image-wrap
-             [:img.services-value__image
-              {:src "/img/services4.jpg"
-               :alt "Custom Software Development"}]
-             [:div.services-value__number "04"]]
-        
-            [:h3.services-value__card-title "Custom Software Development"]
-            [:div.services-value__underline]
-            [:p.services-value__text
-             "When off-the-shelf tools don't fit, we build purpose-built applications: internal dashboards, client portals, reporting tools, and producer-facing utilities — all designed around how your brokerage actually operates."]]]]]   
-        [:div.container
-         (when posts (posts-list context posts))]]
+           [:a.btn.btn-secondary {:href "mailto:info@brokerdev.ca"} "Get in Touch"]]]]]
+       [:section.lower-section
+        [:div.overlap-card
+         service-cards]
+         [:div.container
+         (when posts (posts-list context posts))]] 
        (page-footer context)
        [:script {:src (resolve-url context "/js/highlight.min.js")}]
        [:script "hljs.highlightAll();"]])))
